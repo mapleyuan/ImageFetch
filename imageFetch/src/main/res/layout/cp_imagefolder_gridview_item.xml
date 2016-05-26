@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/gridview_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chatplane_imageselector_scaled_size"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:background="@drawable/cp_img_selector_default" />
+
+    <RelativeLayout
+        android:id="@+id/gridview_imageview_select"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"      
+        android:clickable="false"
+        android:visibility="gone"
+        android:background="#7dFFFFFF" >
+
+      <!--   <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/cp_folder_image_selected" /> -->
+    </RelativeLayout>
+
+</RelativeLayout>
+
+  <!-- android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" -->
