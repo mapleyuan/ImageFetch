@@ -48,12 +48,15 @@ public class ImageFetchManager {
                 }
                 mFileUnits = (FileUnit) objects[0];
             }
-
             @Override
             public void onFail(int reason) {
 
             }
         });
+    }
+
+    public FileUnit getFileUnits() {
+        return mFileUnits;
     }
 
     /***

@@ -15,6 +15,9 @@ public class ImageUnit extends BroadCaster {
 	public String mImageName;
 	public String mDir;
 	public boolean mIsSelected = false;
+	public ImageUnit() {
+
+	}
 	public ImageUnit(File file) {
 		mImageName = file.getName();
 		mDir = file.getAbsolutePath();
