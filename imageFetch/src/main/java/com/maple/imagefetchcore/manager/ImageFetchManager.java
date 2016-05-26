@@ -9,7 +9,8 @@ import com.maple.imagefetchcore.core.bean.BaseUnit;
 import com.maple.imagefetchcore.core.bean.DoubanDivUnit;
 import com.maple.imagefetchcore.core.inter.IImageParser;
 import com.maple.imagefetchcore.download.impl.DownloadRecordManager;
-
+import com.maple.imagefetchcore.maple.imageselector.IFImageFileManager;
+import com.maple.imagefetchcore.maple.imageselector.pojo.FileUnit;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class ImageFetchManager {
      * 操作结果
      * */
     public interface IOperationResult {
-        void onSuccess();
+        void onSuccess(Object... objects);
         void onFail(int reason);
     }
 
@@ -39,7 +40,20 @@ public class ImageFetchManager {
     public void init() {
 
         //初始化数据，扫描文件夹下所有图片
+        IFImageFileManager.getInstance(mContext).scanDirectory(Constants.IMAGE_PATH, new IOperationResult() {
+            @Override
+            public void onSuccess(Object... objects) {
+                if (objects[0] == null) {
+                    return;
+                }
+                mFileUnits = (FileUnit) objects[0];
+            }
 
+            @Override
+            public void onFail(int reason) {
+
+            }
+        });
     }
 
     /***
@@ -75,6 +89,7 @@ public class ImageFetchManager {
 
     private static ImageFetchManager sInstance;
     private Context mContext;
+    private FileUnit mFileUnits;
 
     private ImageFetchManager(Context context) {
         if (context == null) {

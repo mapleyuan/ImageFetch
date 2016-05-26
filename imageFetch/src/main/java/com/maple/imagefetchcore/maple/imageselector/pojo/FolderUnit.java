@@ -24,6 +24,15 @@ public class FolderUnit {
 		mFirstImagePath = firstImagePath;
 	}
 
+	public FolderUnit(File file) {
+		File[] files = file.listFiles();
+		if (files == null) {
+			return;
+		}
+		mFirstImagePath = files[0].getAbsolutePath();
+		mFolderDir = file.getAbsolutePath();
+	}
+
 	public FolderUnit(String folderDir) {
 		File f = new File(folderDir);
 		File[] files = f.listFiles();
