@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class FileUnit {
     public List<FolderUnit> mFolderList = new ArrayList<>();
-    public List<ImageUnit> mImageList = new ArrayList<>();
 
     public static FileUnit transferTo(File[] childs) {
         if (childs == null) {
@@ -18,11 +17,7 @@ public class FileUnit {
         FileUnit fileUnit = new FileUnit();
         int size = childs.length;
         for (int i = 0; i < size; i++) {
-            if(childs[i].isDirectory()) {
-                fileUnit.mFolderList.add(new FolderUnit(childs[i]));
-            } else {
-                fileUnit.mImageList.add(new ImageUnit(childs[i]));
-            }
+            fileUnit.mFolderList.add(new FolderUnit(childs[i]));
         }
         return fileUnit;
     }

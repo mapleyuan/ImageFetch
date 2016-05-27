@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:holo="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_websearch"
+        android:title="@string/im_add"
+        holo:showAsAction="never"/>
+</menu>

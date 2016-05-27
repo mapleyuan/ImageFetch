@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+
+    <EditText
+        android:id="@+id/rss_source_search_id"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_margin="18dp"
+        android:textColor="#000000"
+        android:background="@drawable/if_search_bg"
+        />
+    <ImageView
+        android:id="@+id/rss_source_search_Ok_id"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="#a1a1a1"
+        android:src="@drawable/if_search_background_normal"
+        android:layout_alignRight="@id/rss_source_search_id"
+        android:layout_alignBottom="@id/rss_source_search_id"
+        />
+
+<!-- 历史记录   <GridView
+        android:layout_below="@id/rss_source_search_id"
+        android:id="@+id/rss_source_gridview_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="15dp"
+        android:horizontalSpacing="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_margin="18dp"
+        android:numColumns="@integer/grid_column_count"
+    />-->
+
+</RelativeLayout>

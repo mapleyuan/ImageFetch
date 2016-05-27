@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/if_transparent"
+     >
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:background="@color/appMainColor"
+        android:orientation="vertical"
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:text="@string/im_add_dialog_title"
+            android:textColor="#6e6e6e"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/fs_rss_source_title_id"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_margin="16dp"
+        android:hint="url:"
+        android:padding="15dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/if_search_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        >
+        <Button
+            android:id="@+id/login_dialog_ok_id"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:background="@drawable/if_btn_selector"
+            android:layout_centerVertical="true"
+            android:text="@string/im_add"
+            android:textColor="#6e6e6e"
+            android:layout_margin="16dp"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

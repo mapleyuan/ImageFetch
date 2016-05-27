@@ -11,6 +11,8 @@ import com.maple.imagefetchcore.core.inter.IImageParser;
 import com.maple.imagefetchcore.download.impl.DownloadRecordManager;
 import com.maple.imagefetchcore.maple.imageselector.IFImageFileManager;
 import com.maple.imagefetchcore.maple.imageselector.pojo.FileUnit;
+import com.maple.imagefetchcore.thread.CustomThreadExecutorProxy;
+
 import java.util.List;
 
 /**
@@ -63,31 +65,37 @@ public class ImageFetchManager {
      * 爬取指定url的image
      * @param url
      */
-    public void fetchImage(String url, final IOperationResult operationResult) {
-        if (!URLUtil.isValidUrl(url)) {
-            if (operationResult != null) {
-                operationResult.onFail(Constants.LOAD_URL_RESULT_INVALID_URL);
-            }
-        }
-        IImageParser parser = ImageParserFactory.create(url);
-        parser.parse(url, new IImageParser.IParseResult<BaseUnit>() {
+    public void fetchImage(final String url, final IOperationResult operationResult) {
+        CustomThreadExecutorProxy.getInstance().runOnAsyncThread(new Runnable() {
             @Override
-            public void onFinish(List<BaseUnit> list) {
-
-                handleParserData(list);
-
-                if (operationResult != null) {
-                    operationResult.onSuccess();
+            public void run() {
+                if (!URLUtil.isValidUrl(url)) {
+                    if (operationResult != null) {
+                        operationResult.onFail(Constants.LOAD_URL_RESULT_INVALID_URL);
+                    }
                 }
-            }
+                IImageParser parser = ImageParserFactory.create(url);
+                parser.parse(url, new IImageParser.IParseResult<BaseUnit>() {
+                    @Override
+                    public void onFinish(List<BaseUnit> list) {
 
-            @Override
-            public void onFail() {
-                if (operationResult != null) {
-                    operationResult.onFail(Constants.LOAD_URL_RESULT_PARSE_FAIL);
-                }
+                        handleParserData(list);
+
+                        if (operationResult != null) {
+                            operationResult.onSuccess();
+                        }
+                    }
+
+                    @Override
+                    public void onFail() {
+                        if (operationResult != null) {
+                            operationResult.onFail(Constants.LOAD_URL_RESULT_PARSE_FAIL);
+                        }
+                    }
+                });
             }
         });
+
     }
 
     private static ImageFetchManager sInstance;

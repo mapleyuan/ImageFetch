@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="appMainColor">#EEF4ED</color>
+    <color name="if_transparent">#00000000</color>
+
+    <color name="tokencoin_buydialog_btn_ok_pressed">#13a02e</color>
+    <color name="tokencoin_buydialog_btn_ok_unpressed">#25d346</color>
 </resources>

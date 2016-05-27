@@ -11,20 +11,20 @@ public class FolderUnit {
 	public String mFolderDir;
 	public String mFirstImagePath;
 	public int mCount;
+	public boolean mIsFile;
 	private String mName;
+	public String mImageName;
+	public String mDir;
 
-	public FolderUnit(String folderDir, String firstImagePath, int count) {
-		mFolderDir = folderDir;
-		mFirstImagePath = firstImagePath;
-		mCount = count;
-	}
-
-	public FolderUnit(String folderDir, String firstImagePath) {
-		mFolderDir = folderDir;
-		mFirstImagePath = firstImagePath;
-	}
 
 	public FolderUnit(File file) {
+		if (file.isDirectory()) {
+			mIsFile = true;
+			mImageName = file.getName();
+			mDir = file.getAbsolutePath();
+			return;
+		}
+		mIsFile = false;
 		File[] files = file.listFiles();
 		if (files == null) {
 			return;

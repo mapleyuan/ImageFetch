@@ -21,6 +21,7 @@ public class AndroidUtils {
             intent.setData(content_url);
             intent.setComponent(new ComponentName("com.android.browser", "com.android.browser.BrowserActivity"));
             intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         } catch (android.content.ActivityNotFoundException e) {
             try {
@@ -29,6 +30,7 @@ public class AndroidUtils {
                 intent.setAction("Android.intent.action.VIEW");
                 Uri content_url = Uri.parse(url);
                 intent.setData(content_url);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             } catch (android.content.ActivityNotFoundException ee) {
                 Toast.makeText(context, "未找到该手机浏览器", Toast.LENGTH_LONG).show();
